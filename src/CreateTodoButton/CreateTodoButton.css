@@ -1,0 +1,75 @@
+.container-Create {
+  width: 40%;
+  height: 90vh;
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  flex-direction: column;
+}
+.container-Create h2 {
+  font-size: 3.5rem;
+  font-family: "Concert One";
+  font-weight: 400;
+  color: #161853;
+  margin-top: 20px;
+}
+.container-img {
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container-img img {
+  width: 70%;
+}
+.botton {
+  font-size: 1.8rem;
+  font-family: "Luxurious Roman";
+  font-weight: 400;
+  width: 140px;
+  height: 48px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff;
+  transition: 0.45s;
+  background-image: linear-gradient(
+    to right,
+    #4776e6 0%,
+    #8e54e9 51%,
+    #4776e6 100%
+  );
+  background-size: 200% auto;
+  display: block;
+  z-index: 1;
+}
+.botton:hover {
+  box-shadow: 0px 4px rgba(93, 0, 241, 0.445);
+  background-position: right center;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  .container-Create {
+    width: 100%;
+  }
+  .container-img img {
+    width: 100%;
+    padding-bottom: 40px;
+  }
+  .container-img h2 {
+    padding-top: 100px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .container-Create {
+    width: 60%;
+  }
+  .container-img img {
+    width: 70%;
+    padding-bottom: 40px;
+  }
+}
