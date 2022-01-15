@@ -1,9 +1,7 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = React.createContext();
-
-function TodoProvider(props) {
+function useTodos() {
   const {
     item: listTodos,
     saveItem: setListTodos,
@@ -54,28 +52,22 @@ function TodoProvider(props) {
     setListTodos(newListTodos);
   };
 
-  return (
-    <TodoContext.Provider
-      value={{
-        loading,
-        error,
-        totalTodos,
-        completedTodos,
-        searchValue,
-        setSearchValue,
-        searchTodosFilter,
-        addNewTodo,
-        onCompletedTodo,
-        onDeletedTodo,
-        searchValue,
-        setSearchValue,
-        openModal,
-        setOpenModal,
-      }}
-    >
-      {props.children}
-    </TodoContext.Provider>
-  );
+  return {
+    loading,
+    error,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searchTodosFilter,
+    addNewTodo,
+    onCompletedTodo,
+    onDeletedTodo,
+    searchValue,
+    setSearchValue,
+    openModal,
+    setOpenModal,
+  };
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };
