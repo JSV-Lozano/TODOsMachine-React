@@ -4,14 +4,16 @@ import "./TodoList.css";
 function TodoList(props) {
   return (
     <section className="TodoList-container">
-      {/*   {props.error && props.onError()}
-      {props.loading && props.onLoading}
+      {props.error && props.onError()}
+      {props.loading && props.onLoading()}
 
-      {!(props.loading && props.searchTodosFilter.length) && props.onEmptyTodos}
+      {!props.loading && !props.totalTodos && props.onEmptyTodos()}
 
-      {props.searchTodosFilter.map(props.render)} */}
+      {!!props.totalTodos &&
+        !props.searchTodosFilter.length &&
+        props.onEmptyTodosSearch()}
 
-      <ul>{props.children}</ul>
+      <ul>{props.searchTodosFilter.map(props.render || props.children)}</ul>
     </section>
   );
 }

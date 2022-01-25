@@ -3,6 +3,7 @@ import { useLocalStorage } from "./useLocalStorage";
 
 function useTodos() {
   const {
+    sincronizeItem: sincronizedTodos,
     item: listTodos,
     saveItem: setListTodos,
     loading,
@@ -57,8 +58,6 @@ function useTodos() {
     error,
     totalTodos,
     completedTodos,
-    searchValue,
-    setSearchValue,
     searchTodosFilter,
     addNewTodo,
     onCompletedTodo,
@@ -67,6 +66,7 @@ function useTodos() {
     setSearchValue,
     openModal,
     setOpenModal,
+    sincronizedTodos,
   };
 }
 

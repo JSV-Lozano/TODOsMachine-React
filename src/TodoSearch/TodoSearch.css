@@ -1,7 +1,7 @@
 .TodoSearch {
   background: #f9fbfc;
   border-radius: 2px;
-  border: 1px solid #202329;
+  border: 1px solid #542dbe;
   margin: 0 24px;
   height: 40px;
   width: calc(100% - 70px);
@@ -22,4 +22,7 @@
 
 .TodoSearch:focus {
   outline-color: #8a61fa;
+}
+.TodoSearch:disabled {
+  opacity: 20%;
 }

@@ -14,6 +14,7 @@ import { TodoEmpty } from "../TodoEmpty";
 import { TodoSearchEmpty } from "../TodoSearchEmpty";
 import { TodoLoading } from "../TodoLoading";
 import { TodoError } from "../TodoError";
+import { ChangeAlert } from "../ChangeAlert/index";
 
 function App() {
   const {
@@ -29,12 +30,13 @@ function App() {
     setSearchValue,
     addNewTodo,
     setOpenModal,
+    sincronizedTodos,
   } = useTodos();
   return (
     <React.Fragment>
       <TodoMain setOpenModal={setOpenModal} openModal={openModal}>
         <TodoContainer>
-          <TodoHeader>
+          <TodoHeader loading={loading}>
             <TodoCounter
               totalTodos={totalTodos}
               completedTodos={completedTodos}
@@ -45,16 +47,18 @@ function App() {
             />
           </TodoHeader>
 
-          {/*    <TodoList>
-            error = {error}
-            loading ={loading}
+          <TodoList
+            error={error}
+            loading={loading}
             searchTodosFilter={searchTodosFilter}
+            totalTodos={totalTodos}
             onError={() => <TodoError />}
             onLoading={() => <TodoLoading />}
             onEmptyTodos={() => <TodoEmpty />}
-            render=
-            {(listTodos) => (
+            onEmptyTodosSearch={() => <TodoSearchEmpty setText={searchValue} />}
+            render={(listTodos) => (
               <TodoItem
+                loading={loading}
                 key={listTodos.text}
                 text={listTodos.text}
                 completed={listTodos.completed}
@@ -62,9 +66,9 @@ function App() {
                 onDeletedTodos={() => onDeletedTodo(listTodos.text)}
               />
             )}
-          </TodoList> */}
+          ></TodoList>
 
-          <TodoList>
+          {/*           <TodoList>
             {error && <TodoError error={error} />}
             {loading && <TodoLoading />}
             {!loading && !totalTodos && <TodoEmpty />}
@@ -78,7 +82,7 @@ function App() {
                 onDeletedTodos={() => onDeletedTodo(listTodos.text)}
               />
             ))}
-          </TodoList>
+          </TodoList> */}
           {!!openModal && (
             <Modal>
               <TodoForm addNewTodo={addNewTodo} setOpenModal={setOpenModal} />
@@ -86,6 +90,7 @@ function App() {
           )}
         </TodoContainer>
       </TodoMain>
+      <ChangeAlert sincronized={sincronizedTodos} />
     </React.Fragment>
   );
 }

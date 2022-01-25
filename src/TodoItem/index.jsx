@@ -3,7 +3,7 @@ import "./TodoItem.css";
 
 function TodoItem(props) {
   return (
-    <li className="TodoItem">
+    <li className={`TodoItem ${!!props.loading && `TodoItem--Loading`}`}>
       <span
         className={`Icon Icon-check ${props.completed}`}
         onClick={props.onComplete}
